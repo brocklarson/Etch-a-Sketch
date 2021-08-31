@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Etch-a-Sketch</title>
+    <meta name="description" content="Etch-a-Sketch for The Odin Project">
+    <meta name="author" content="Brock Larson">
+
+    <link rel="icon" href="icons/icon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <div id="buttonsContainerTop" class="buttons-container-top">
+        <button id="blackButton" class="black-button buttons">Black</button>
+        <button id="greyscaleButton" class="greyscale-button buttons">Greyscale</button>
+        <button id="rainbowButton" class="rainbow-button buttons">Rainbow</button>
+        <input type="color" autocomplete="off" value="#CF0000" id="selectColorButton" class="buttons">
+    </div>
+    <div id=" gameContainer" class="game-container">
+        <img class="logo-image" src="icons/logo.png">
+        <div id="gameGridContainer" class="game-grid-container"></div>
+        <div class="left-knob"></div>
+        <div class="right-knob"></div>
+    </div>
+    <div id="buttonsContainerBottom" class="buttons-container-bottom">
+        <button id="eraserButton" class="eraser-button buttons">Eraser</button>
+        <button id="clearButton" class="clear-button buttons">Clear</button>
+        <input autocomplete="off" type="range" min="2" max="60" value="16" step="1" class="slider" id="slider">
+        <p id="sliderValue" class="slider-value">16 &#215; 16</p>
+    </div>
+
+</body>
+
+</html>
