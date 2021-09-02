@@ -20,9 +20,9 @@
         <button id="blackButton" class="black-button buttons current">Black</button>
         <button id="greyscaleButton" class="greyscale-button buttons">Greyscale</button>
         <button id="rainbowButton" class="rainbow-button buttons">Rainbow</button>
-        <button id="selectColorButtonContainer" class="select-color-button buttons">Color
+        <div id="selectColorButtonContainer" class="select-color-button buttons">Color
             <input type="color" autocomplete="off" value="#000000" id="selectColorButton" class="color-picker">
-        </button>
+        </div>
     </div>
     <div id="gameContainer" class="game-container">
         <img class="logo-image" src="icons/logo.png" alt="Etch-a-Sketch logo">
@@ -36,7 +36,7 @@
         <button id="clearButton" class="clear-button buttons">Shake</button>
         <div class="slider-container">
             <input autocomplete="off" type="range" name="slider" min="2" max="60" value="16" step="1" class="slider" id="slider">
-            <output for="slider" onforminput="value = foo.valueAsNumber;" class="bubble" id="bubble"></output>
+            <output for="slider" class="bubble" id="bubble"></output>
         </div>
     </div>
 

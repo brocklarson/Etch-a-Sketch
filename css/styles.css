@@ -129,6 +129,11 @@ body {
     width: 7vw;
 }
 
+.select-color-button {
+    line-height: 4vh;
+    text-align: center;
+}
+
 .buttons:hover {
     box-shadow: 0 0 2px var(--tertiary-color) inset;
     filter: brightness(0.95);
@@ -163,11 +168,11 @@ body {
 }
 
 .slider-container {
-    position: relative;
     flex-grow: 1;
     height: max-content;
-    width: 100%;
     margin: 0 16px;
+    position: relative;
+    width: 100%;
 }
 
 .slider {
@@ -221,10 +226,10 @@ body {
     background: var(--primary-color);
     border-radius: 10px;
     color: var(--secondary-color);
-    text-shadow: var(--text-shadow);
     left: 50%;
     padding: 4px 12px;
     position: absolute;
+    text-shadow: var(--text-shadow);
     transform: translateX(-50%);
 }
 
