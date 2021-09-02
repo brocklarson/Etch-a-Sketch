@@ -16,14 +16,17 @@
 
 <body>
     <div id="buttonsContainerTop" class="buttons-container-top">
-        <button id="blackButton" class="black-button buttons">Black</button>
+        <button id="blackButton" class="black-button buttons current">Black</button>
         <button id="greyscaleButton" class="greyscale-button buttons">Greyscale</button>
         <button id="rainbowButton" class="rainbow-button buttons">Rainbow</button>
-        <input type="color" autocomplete="off" value="#CF0000" id="selectColorButton" class="buttons">
+        <button id="selectColorButtonContainer" class="select-color-button buttons">Color
+            <input type="color" autocomplete="off" value="#000000" id="selectColorButton" class="color-picker">
+        </button>
     </div>
     <div id=" gameContainer" class="game-container">
-        <img class="logo-image" src="icons/logo.png">
+        <img class="logo-image" src="icons/logo.png" alt="Etch-a-Sketch logo">
         <div id="gameGridContainer" class="game-grid-container"></div>
+        <div id="gameGridSahdow" class="game-grid-shadow"></div>
         <div class="left-knob"></div>
         <div class="right-knob"></div>
     </div>
@@ -31,7 +34,7 @@
         <button id="eraserButton" class="eraser-button buttons">Eraser</button>
         <button id="clearButton" class="clear-button buttons">Clear</button>
         <input autocomplete="off" type="range" min="2" max="60" value="16" step="1" class="slider" id="slider">
-        <p id="sliderValue" class="slider-value">16 &#215; 16</p>
+        <p id="sliderValue" class="slider-value">16&#215;16</p>
     </div>
 
 </body>
