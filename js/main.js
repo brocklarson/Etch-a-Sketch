@@ -1,7 +1,8 @@
 const root = document.documentElement;
+const gameContainer = document.getElementById('gameContainer');
 const gameGridContainer = document.getElementById('gameGridContainer');
 const slider = document.getElementById('slider');
-const sliderValueText = document.getElementById('sliderValue');
+const bubble = document.getElementById('bubble');
 const clearButton = document.getElementById('clearButton');
 const eraserButton = document.getElementById('eraserButton');
 const blackButton = document.getElementById('blackButton');
@@ -28,10 +29,25 @@ function removeAllChildNodes() {
 
 function clearGrid() {
     let cells = document.querySelectorAll('.grid-cell');
-    for (i = 0; i < cells.length; i++) {
-        cells[i].style.setProperty('background-color', 'transparent');
-    }
     clearButton.blur();
+
+    gameContainer.classList.add('shake-horizontal');
+    gameContainer.addEventListener('animationend', function() {
+        gameContainer.classList.remove('shake-horizontal');
+    });
+
+    [].map.call(cells, function(elem) {
+        elem.classList.add('color-fade');
+        elem.addEventListener('animationend', removeClass, false);
+    });
+
+    function removeClass() {
+        [].map.call(cells, function(elem) {
+            elem.classList.remove('color-fade');
+            elem.style.setProperty('background-color', 'transparent');
+            elem.style.setProperty('filter', 'brightness(1)');
+        });
+    };
 }
 
 function fillInGrid(event) {
@@ -65,8 +81,17 @@ function getColor() {
 }
 
 function getSliderValue() {
-    sliderValueText.innerText = `${slider.value}\u00D7${slider.value}`;
+    setBubble(slider, bubble);
     makeGrid(slider.value);
+}
+
+function setBubble(slider, bubble) {
+    const val = slider.value;
+    const min = slider.min ? slider.min : 2;
+    const max = slider.max ? slider.max : 60;
+    const newVal = Number(((val - min) * 100) / (max - min));
+    bubble.innerText = slider.value;
+    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 
 function setButtonBackground() {
@@ -90,9 +115,8 @@ function setButtonFocus(currentButton) {
     currentButton.classList.add('current');
 }
 
-//SHAKE FOR CLEAR
-
 makeGrid(16);
+setBubble(slider, bubble);
 
 slider.oninput = getSliderValue;
 selectColorButton.onchange = setButtonBackground;

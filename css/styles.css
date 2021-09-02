@@ -4,8 +4,6 @@
 }
 
 :root {
-    --button-color: #CF0000;
-    --button-text-color: #F2EA24;
     --font-family: sans-serif;
     --grid-size: 16;
     --pixel-color: black;
@@ -75,6 +73,10 @@ body {
     padding: 0;
 }
 
+.grid-cell.color-fade {
+    animation: color-fade 1s forwards;
+}
+
 .left-knob,
 .right-knob {
     align-self: flex-end;
@@ -111,10 +113,10 @@ body {
 }
 
 .buttons {
-    background-color: var(--button-color);
+    background-color: var(--primary-color);
     border-radius: 8px;
     border: solid 1px var(--tertiary-color);
-    color: var(--button-text-color);
+    color: var(--secondary-color);
     cursor: pointer;
     font-family: var(--font-family);
     font-size: 2.5vh;
@@ -160,6 +162,14 @@ body {
     margin-left: 8px;
 }
 
+.slider-container {
+    position: relative;
+    flex-grow: 1;
+    height: max-content;
+    width: 100%;
+    margin: 0 16px;
+}
+
 .slider {
     -webkit-appearance: none;
     background: lightgray;
@@ -167,7 +177,6 @@ body {
     border: solid 1px var(--tertiary-color);
     flex-grow: 1;
     height: 15px;
-    margin-left: 12px;
     outline: none;
     overflow: hidden;
     width: 100%;
@@ -208,15 +217,32 @@ body {
     height: 100%;
 }
 
-.slider-value {
-    color: var(--button-text-color);
-    font-family: var(--font-family);
-    font-size: 1.8vh;
-    font-weight: 700;
-    line-height: 4vh;
-    margin: 0 16px;
-    text-align: center;
+.bubble {
+    background: var(--primary-color);
+    border-radius: 10px;
+    color: var(--secondary-color);
     text-shadow: var(--text-shadow);
+    left: 50%;
+    padding: 4px 12px;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.bubble::after {
+    background: var(--primary-color);
+    content: "";
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    top: -2px;
+    width: 2px;
+}
+
+@keyframes color-fade {
+    100% {
+        background-color: var(--screen-color);
+        filter: brightness(1);
+    }
 }
 
 @media only screen and (max-aspect-ratio: 1/1) {
@@ -249,8 +275,5 @@ body {
     .buttons-container-bottom {
         height: max-content;
         width: 80vw;
-    }
-    .slider-value {
-        font-size: 1.8vw;
     }
 }
