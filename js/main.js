@@ -29,6 +29,7 @@ function removeAllGridCells() {
 }
 
 function clearGrid() {
+    //So the clear button doesn't remain in focus on click
     clearButton.blur();
 
     gameContainer.classList.add('shake-horizontal');
@@ -75,11 +76,11 @@ function getColor() {
 }
 
 function getSliderValue() {
-    setBubble(slider, bubble);
+    setSliderBubblePosition(slider, bubble);
     makeGrid(slider.value);
 }
 
-function setBubble(slider, bubble) {
+function setSliderBubblePosition(slider, bubble) {
     const val = slider.value;
     const min = slider.min ? slider.min : 2;
     const max = slider.max ? slider.max : 60;
@@ -88,7 +89,7 @@ function setBubble(slider, bubble) {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 
-function setButtonBackground() {
+function setColorButtonBackground() {
     selectColorButtonContainer.style.setProperty('background-color', selectColorButton.value);
 }
 
@@ -101,6 +102,7 @@ function setMode(event) {
     setButtonFocus(event.target);
 }
 
+//Keeps button focused even after clicking the clear button
 function setButtonFocus(currentButton) {
     let buttons = document.querySelectorAll('.buttons');
     for (i = 0; i < buttons.length; i++) {
@@ -110,10 +112,10 @@ function setButtonFocus(currentButton) {
 }
 
 makeGrid(16);
-setBubble(slider, bubble);
+setSliderBubblePosition(slider, bubble);
 
 slider.oninput = getSliderValue;
-selectColorButton.onchange = setButtonBackground;
+selectColorButton.onchange = setColorButtonBackground;
 
 gameGridContainer.addEventListener('mouseover', fillInGrid);
 clearButton.addEventListener('click', clearGrid);

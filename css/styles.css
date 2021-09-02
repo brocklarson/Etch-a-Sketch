@@ -39,8 +39,8 @@ body {
 
 .logo-image {
     align-self: flex-start;
-    height: 9vh;
-    margin-top: 0.5vh;
+    height: 6vh;
+    margin-top: 2vh;
 }
 
 .game-grid-container {
@@ -133,6 +133,10 @@ body {
 .select-color-button {
     line-height: 4vh;
     text-align: center;
+}
+
+.select-color-button p {
+    padding: 0 4px;
 }
 
 .buttons:hover {
@@ -261,8 +265,9 @@ body {
         width: 60vw;
     }
     .logo-image {
-        height: 12vw;
+        height: 8vw;
         max-height: 9vh;
+        margin-top: 3vw;
     }
     .left-knob,
     .right-knob {
