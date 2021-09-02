@@ -40,6 +40,7 @@ body {
 .logo-image {
     align-self: flex-start;
     height: 9vh;
+    margin-top: 0.5vh;
 }
 
 .game-grid-container {
