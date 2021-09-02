@@ -1,6 +1,7 @@
 const root = document.documentElement;
 const gameContainer = document.getElementById('gameContainer');
 const gameGridContainer = document.getElementById('gameGridContainer');
+const gameGridOverlay = document.getElementById('gameGridShadow');
 const slider = document.getElementById('slider');
 const bubble = document.getElementById('bubble');
 const clearButton = document.getElementById('clearButton');
@@ -13,7 +14,7 @@ const selectColorButtonContainer = document.getElementById('selectColorButtonCon
 let colorMode = 'blackButton';
 
 function makeGrid(gridSize = 16) {
-    removeAllChildNodes();
+    removeAllGridCells();
     root.style.setProperty('--grid-size', gridSize);
     for (i = 0; i < (gridSize * gridSize); i++) {
         let cell = document.createElement('div');
@@ -21,14 +22,13 @@ function makeGrid(gridSize = 16) {
     }
 }
 
-function removeAllChildNodes() {
+function removeAllGridCells() {
     while (gameGridContainer.firstChild) {
         gameGridContainer.removeChild(gameGridContainer.firstChild);
     }
 }
 
 function clearGrid() {
-    let cells = document.querySelectorAll('.grid-cell');
     clearButton.blur();
 
     gameContainer.classList.add('shake-horizontal');
@@ -36,18 +36,12 @@ function clearGrid() {
         gameContainer.classList.remove('shake-horizontal');
     });
 
-    [].map.call(cells, function(elem) {
-        elem.classList.add('color-fade');
-        elem.addEventListener('animationend', removeClass, false);
+    //Use an overlay div for fade animation rather than individually fading each cell 
+    gameGridOverlay.classList.add('color-fade');
+    gameGridOverlay.addEventListener('animationend', function() {
+        makeGrid(slider.value);
+        gameGridOverlay.classList.remove('color-fade');
     });
-
-    function removeClass() {
-        [].map.call(cells, function(elem) {
-            elem.classList.remove('color-fade');
-            elem.style.setProperty('background-color', 'transparent');
-            elem.style.setProperty('filter', 'brightness(1)');
-        });
-    };
 }
 
 function fillInGrid(event) {

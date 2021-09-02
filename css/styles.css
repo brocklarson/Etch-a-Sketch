@@ -68,14 +68,14 @@ body {
     z-index: 3;
 }
 
+.game-grid-shadow.color-fade {
+    animation: color-fade 1s forwards;
+}
+
 .grid-cell {
     border: none;
     margin: 0;
     padding: 0;
-}
-
-.grid-cell.color-fade {
-    animation: color-fade 1s forwards;
 }
 
 .left-knob,
@@ -247,7 +247,6 @@ body {
 @keyframes color-fade {
     100% {
         background-color: var(--screen-color);
-        filter: brightness(1);
     }
 }
 
