@@ -12,34 +12,44 @@
     <link rel="icon" href="icons/icon.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/shake.css">
+
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
     <script src="js/main.js" defer></script>
 </head>
 
 <body>
-    <div id="buttonsContainerTop" class="buttons-container-top">
-        <button id="blackButton" class="black-button buttons current">Black</button>
-        <button id="greyscaleButton" class="greyscale-button buttons">Greyscale</button>
-        <button id="rainbowButton" class="rainbow-button buttons">Rainbow</button>
-        <div id="selectColorButtonContainer" class="select-color-button buttons">
-            <p>Color</p>
-            <input type="color" autocomplete="off" value="#000000" id="selectColorButton" class="color-picker">
+    <main>
+        <div id="buttonsContainerTop" class="buttons-container-top">
+            <button id="blackButton" class="black-button buttons current">Black</button>
+            <button id="greyscaleButton" class="greyscale-button buttons">Greyscale</button>
+            <button id="rainbowButton" class="rainbow-button buttons">Rainbow</button>
+            <div id="selectColorButtonContainer" class="select-color-button buttons">
+                <p>Color</p>
+                <input type="color" autocomplete="off" value="#000000" id="selectColorButton" class="color-picker">
+            </div>
         </div>
-    </div>
-    <div id="gameContainer" class="game-container">
-        <img class="logo-image" src="icons/logo.png" alt="Etch-a-Sketch logo">
-        <div id="gameGridContainer" class="game-grid-container"></div>
-        <div id="gameGridShadow" class="game-grid-shadow"></div>
-        <div class="left-knob"></div>
-        <div class="right-knob"></div>
-    </div>
-    <div id="buttonsContainerBottom" class="buttons-container-bottom">
-        <button id="eraserButton" class="eraser-button buttons">Eraser</button>
-        <button id="clearButton" class="clear-button buttons">Clear</button>
-        <div class="slider-container">
-            <input autocomplete="off" type="range" name="slider" min="2" max="60" value="16" step="1" class="slider" id="slider">
-            <output for="slider" class="bubble" id="bubble"></output>
+        <div id="gameContainer" class="game-container">
+            <img class="logo-image" src="icons/logo.png" alt="Etch-a-Sketch logo">
+            <div id="gameGridContainer" class="game-grid-container"></div>
+            <div id="gameGridShadow" class="game-grid-shadow"></div>
+            <div class="left-knob"></div>
+            <div class="right-knob"></div>
         </div>
-    </div>
+        <div id="buttonsContainerBottom" class="buttons-container-bottom">
+            <button id="eraserButton" class="eraser-button buttons">Eraser</button>
+            <button id="clearButton" class="clear-button buttons">Clear</button>
+            <div class="slider-container">
+                <input autocomplete="off" type="range" name="slider" min="2" max="60" value="16" step="1" class="slider" id="slider">
+                <output for="slider" class="bubble" id="bubble"></output>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Brock Larson &copy; 2021 </p>
+        <a href="https://github.com/brocklarson" target="_blank">
+            <i class="fab fa-github"></i></a>
+    </footer>
 
 </body>
 
